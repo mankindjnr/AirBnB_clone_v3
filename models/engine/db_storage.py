@@ -75,7 +75,7 @@ class DBStorage:
         """call remove() method on the private session attribute"""
         self.__session.remove()
 
-    def get_objects(self, cls, id):
+    def get(self, cls, id):
         """
         gets all the objects according to the class name id
         """
@@ -84,7 +84,7 @@ class DBStorage:
         results = all_objects.get(string_search)
         return results
 
-    def obj_count(self, cls=None):
+    def count(self, cls=None):
         """
         outputs the number of objects in storage that match the cls name
         given

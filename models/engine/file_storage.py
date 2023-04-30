@@ -69,7 +69,7 @@ class FileStorage:
         """call reload() method for deserializing the JSON file to objects"""
         self.reload()
 
-    def get_objects(self, cls, id):
+    def get(self, cls, id):
         """
         gets the obj as dictated by the name and id
         """
@@ -78,7 +78,7 @@ class FileStorage:
         results = all_objects.get(string_search)
         return results
 
-    def obj_count(self, cls=None):
+    def count(self, cls=None):
         """
         pritns the number of obj in storage that match the given name
         """
