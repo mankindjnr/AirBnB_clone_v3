@@ -20,10 +20,10 @@ def stats():
     """
     returns the states
     """
-    return jsonify({"amenities": storage.count("Amenity"),
-                    "cities": storage.count("City"),
-                    "places": storage.count("Place"),
-                    "reviews": storage.count("Review"),
-                    "states": storage.count("State"),
-                    "users": storage.count("User")
-})
+    return jsonify({"amenities": storage.obj_count("Amenity"),
+                    "cities": storage.obj_count("City"),
+                    "places": storage.obj_count("Place"),
+                    "reviews": storage.obj_count("Review"),
+                    "states": storage.obj_count("State"),
+                    "users": storage.obj_count("User")
+    })
