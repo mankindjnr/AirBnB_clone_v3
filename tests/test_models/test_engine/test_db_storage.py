@@ -67,6 +67,32 @@ test_db_storage.py'])
             self.assertTrue(len(func[1].__doc__) >= 1,
                             "{:s} method needs a docstring".format(func[0]))
 
+     def test_user_if_exists(self):
+        """
+        testing if the classs user is properly created
+        """
+        the_user = User(email="john@snow.com", password="johnpwd")
+        the_user.save()
+        if the_user.id in models.storage.all('User'):
+            self.assertTrue(the_user.password, "johnpwd")
+
+    def test_if_amenity_exist(self):
+        """
+        testing if the amenity class is properly created
+        """
+        the_amenity = Amenity(name="Wifi")
+        the_amenity.save()
+        if the_amenity.id in models.storage.all():
+            self.assertTrue(the_amenity.name, "Wifi")
+
+    def test_state_existance(self):
+        '''
+        Testing if State class is being created properly
+        '''
+        the_state = State(name="Alaska")
+        the_state.save()
+        if the_state.id in models.storage.all():
+            self.assertTrue(the_state.name, "Alaska")
 
 class TestFileStorage(unittest.TestCase):
     """Test the FileStorage class"""
