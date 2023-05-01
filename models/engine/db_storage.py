@@ -51,7 +51,6 @@ class DBStorage:
                     new_dict[key] = obj
                     return (new_dict)
 
-
     def get(self, cls, id):
         """
         gets all the objects according to the class name id

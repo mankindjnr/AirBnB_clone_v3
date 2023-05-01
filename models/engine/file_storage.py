@@ -61,7 +61,6 @@ class FileStorage:
         all_objects = self.all(parameter)
         return (len(all_objects))
 
-
     def save(self):
         """serializes __objects to the JSON file (path: __file_path)"""
         json_objects = {}
@@ -77,7 +76,7 @@ class FileStorage:
                 jo = json.load(f)
             for key in jo:
                 self.__objects[key] = classes[jo[key]["__class__"]](**jo[key])
-        except:
+        except FileNotFoundError:
             pass
 
     def delete(self, obj=None):
